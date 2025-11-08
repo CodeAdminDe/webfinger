@@ -7,9 +7,6 @@
     "requireConfig": "optional",
     "platform": "github",
     "forkProcessing": "enabled",
-    "allowedCommands": [
-            "./hack/renovate/update_changelog.sh"
-        ],
     "repositories": [
         "codeadminde/webfinger"
     ],
@@ -46,15 +43,5 @@
                 }
             ]
         }
-    ],
-    "postUpgradeTasks": {
-        "commands": [
-            "./hack/renovate/update_changelog.sh"
-        ],
-        "dataFileTemplate": "[{{#each upgrades}}{\"depName\": \"{{{depName}}}\", \"updateType\":\"{{updateType}}\", \"currentValue\": \"{{{currentValue}}}\", \"newValue\": \"{{{newValue}}}\"}{{#unless @last}},{{\/unless}}{{\/each}}]",
-        "fileFilters": [
-            "CHANGELOG.md"
-        ],
-        "executionMode": "branch"
-    }
+    ]
 }
