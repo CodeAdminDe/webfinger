@@ -7,6 +7,9 @@
     "requireConfig": "optional",
     "platform": "github",
     "forkProcessing": "enabled",
+    "allowedCommands": [
+            "./hack/renovate/update_changelog.sh"
+        ],
     "repositories": [
         "codeadminde/webfinger"
     ],
