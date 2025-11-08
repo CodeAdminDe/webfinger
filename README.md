@@ -53,6 +53,6 @@ The server will listen on port 8080.
 ## License notice
 
 (c) 2025 Frederic Roggon
-This project is licensed under the terms of GNU AFFERO GENERAL PUBLIC (LICENSE)[./LICENSE].
+This project is licensed under the terms of GNU AFFERO GENERAL PUBLIC [LICENSE](./LICENSE).
 You should have received a copy of the GNU AGPL with the program and/or source files.
-Otherwise, see (https://github.com/CodeAdminDe/webfinger/blob/main/LICENSE)[https://github.com/CodeAdminDe/webfinger/blob/main/LICENSE].
+Otherwise, see [https://github.com/CodeAdminDe/webfinger/blob/main/LICENSE](https://github.com/CodeAdminDe/webfinger/blob/main/LICENSE).
