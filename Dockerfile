@@ -10,6 +10,10 @@ FROM alpine:3.22.2
 WORKDIR /
 COPY --from=builder /main /main
 
+RUN addgroup -g 1001 appusr && adduser -u 1001 -G appusr -D -H appusr && chown appusr:appusr /main
+
+USER appusr
+
 # ENV WEBFINGER_ISSUER_URL="true"
 # ENV WEBFINGER_RESOURCE=acct:user@example.com
 # ENV WEBFINGER_ISSUER_URL=https://example.com/application/issuer
