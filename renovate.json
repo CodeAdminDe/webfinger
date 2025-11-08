@@ -1,0 +1,57 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "branchPrefix": "renovate/",
+    "username": "renovate-release",
+    "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+    "onboarding": true,
+    "requireConfig": "optional",
+    "platform": "github",
+    "forkProcessing": "enabled",
+    "repositories": [
+        "codeadminde/webfinger"
+    ],
+    "lockFileMaintenance": {
+        "automerge": true
+    },
+    "minor": {
+        "automerge": true
+    },
+    "patch": {
+        "automerge": true
+    },
+    "pin": {
+        "automerge": true
+    },
+    "automergeType": "pr",
+    "ignoreTests": true,
+    "packageRules": [
+        {
+            "matchFileNames": [
+                "*"
+            ],
+            "bumpVersions": [
+                {
+                    "filePatterns": [
+                        ".release-version"
+                    ],
+                    "matchStrings": [
+                        "#\\s?renovate: bumpVersion",
+                        "(appVersion|version):\\s?\\\"?(?<version>[\\w+\\.\\-]*)\"?"
+                    ],
+                    "matchStringsStrategy": "combination",
+                    "bumpType": "{{#if isPatch}}patch{{else}}{{#if isMajor}}major{{else}}minor{{/if}}{{/if}}"
+                }
+            ]
+        }
+    ],
+    "postUpgradeTasks": {
+        "commands": [
+            "./hack/renovate/update_changelog.sh"
+        ],
+        "dataFileTemplate": "[{{#each upgrades}}{\"depName\": \"{{{depName}}}\", \"updateType\":\"{{updateType}}\", \"currentValue\": \"{{{currentValue}}}\", \"newValue\": \"{{{newValue}}}\"}{{#unless @last}},{{\/unless}}{{\/each}}]",
+        "fileFilters": [
+            "CHANGELOG.md"
+        ],
+        "executionMode": "branch"
+    }
+}

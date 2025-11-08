@@ -1,0 +1,31 @@
+name: Renovate
+on:
+  push:
+    branches: [ "main" ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+  schedule:
+    # The "*" (#42, asterisk) character has special semantics in YAML, so this
+    # string has to be quoted.
+    - cron: '0 0/2 * * *'
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get token
+        id: get_token
+        uses: actions/create-github-app-token@v2
+        with:
+          private-key: ${{ secrets.private_key }}
+          app-id: ${{ secrets.app_id }}
+          owner: ${{ github.repository_owner }}
+          repositories: 'webfinger'
+
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v44.0.0
+        with:
+          configurationFile: renovate.json
+          token: '${{ steps.get_token.outputs.token }}'

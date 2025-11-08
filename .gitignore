@@ -1,0 +1,9 @@
+main
+webfinger
+webfinger-server
+codeadminde/webfinger-server
+*.test
+*.out
+vendor/
+dev/
+.env
