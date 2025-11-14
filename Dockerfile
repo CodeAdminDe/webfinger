@@ -1,3 +1,5 @@
+LABEL org.opencontainers.image.source="https://github.com/codeadminde/webfinger"
+
 FROM golang:1.25.4-alpine AS builder
 WORKDIR /src
 COPY ./src .
