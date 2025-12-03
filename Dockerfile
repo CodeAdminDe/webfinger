@@ -9,7 +9,7 @@ RUN dtsr="$(date '+%Y%m%d_%H%M%S')" && bvr="${GITHUB_SHA:-localbuild}" && buildi
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /main
 
-FROM alpine:3.22.2
+FROM alpine:3.23.0
 WORKDIR /
 COPY --from=builder /main /main
 
