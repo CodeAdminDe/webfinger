@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: webfinger
+  annotations:
+    github.com/project-slug: CodeAdminDe/webfinger
+spec:
+  type: service
+  lifecycle: experimental
+  owner: CodeAdminDe
